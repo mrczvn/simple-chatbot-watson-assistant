@@ -3,8 +3,6 @@ const socket = require('socket.io');
 const { join } = require('path');
 const handleSocketConn = require('./helpers/socket');
 
-require('dotenv').config();
-
 const app = express();
 
 app.use(express.static(join(__dirname, '../public')));

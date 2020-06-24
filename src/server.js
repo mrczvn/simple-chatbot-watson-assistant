@@ -1,12 +1,10 @@
 require('dotenv').config();
 
 const app = require('./app');
-const { createServer } = require('http');
+const http = require('http').createServer(app);
 
-const httpServer = createServer(app);
-
-httpServer.listen(process.env.APP_PORT, () =>
+http.listen(process.env.APP_PORT, () =>
   console.log(`Server is listening on port: ${process.env.APP_PORT}`)
 );
 
-app.io.attach(httpServer);
+app.io.attach(http);
